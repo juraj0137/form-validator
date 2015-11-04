@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+	<!--<script src="js/heatmap_v2.js"></script>-->
+	<script src="../src/js/Form.js"></script>
+
+</head>
+<body>
+
+<form action="" id="form-1">
+	<label>
+		name
+		<input type="text" name="name">
+	</label><br>
+	<label>
+		email
+		<input type="text" name="email">
+	</label><br>
+	<label>
+		age
+		<input type="text" name="age">
+	</label><br>
+	<label>
+		phone
+		<input type="text" name="phone">
+	</label><br>
+	<label>
+		psc
+		<input type="text" name="psc">
+	</label><br>
+	<button id="validate">validate</button>
+</form>
+<script type="text/javascript">
+	var options = {
+		'formSelector': '#form-1', // id #kvak
+		'rules': {
+			'input[name=name],input[name=age],input[name=email],input[name=phone],input[name=psc]': {
+				'type': 'required', // phone|email|PSC|age|custom|required
+				'errorMessage': 'Toto policko musite vyplnit'
+			},
+			'input[name=email]': {
+				'type': 'email', // phone|email|PSC|age|custom|required
+				'errorMessage': 'Zadali ste neplatny email'
+			},
+			'input[name=age]': {
+				'type': 'age', // phone|email|PSC|age|custom|required
+				'errorMessage': 'Zadali ste neplatny vek'
+			},
+			'input[name=phone]': {
+				'type': 'phone', // phone|email|PSC|age|custom|required
+				'errorMessage': 'Zadali ste neplatny telefon'
+			},
+			'input[name=psc]': {
+				'type': 'custom', // phone|email|PSC|age|custom|required
+				'errorMessage': 'Zadali ste neplatne psc',
+				'validationFunc': function(){
+					return false;
+				}
+			}
+		}
+	};
+	var _formValidator = new Form.Validator(options);
+
+	document.getElementById('validate').onclick = function () {
+		_formValidator.clearErrors();
+		_formValidator.validate();
+		var str = '';
+		var errors = _formValidator.getErrors();
+		for(var key in errors){
+			if(errors.hasOwnProperty(key)){
+				var error = errors[key];
+				str += error.errorMessage + '\n';
+			}
+		}
+		alert(str);
+		return false;
+	}
+
+</script>
+
+</body>
+</html>
