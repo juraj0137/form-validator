@@ -1,29 +1,36 @@
-# README #
+# Forms #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Toto je kniznica na validaciu formularov v JS
 
-### What is this repository for? ###
+### Zakladne pouzitie ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## HTML ##
+# fomular
+`
+<form action="" id="form-1">
 
-### How do I get set up? ###
+	<label>
+		name
+		<input type="text" name="name">
+	</label>
+	<label>
+		email
+		<input type="text" name="email">
+	</label><br>
+	<label>
+		age
+		<input type="text" name="age">
+	</label><br>
+	<label>
+		phone
+		<input type="text" name="phone">
+	</label><br>
+	<label>
+		psc
+		<input type="text" name="psc">
+	</label><br>
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+	<button id="validate">validate</button>
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+</form>
+`
