@@ -7,6 +7,7 @@ Toto je kniznica na validaciu formularov v JS
 #### HTML ##
 ##### fomular
 `
+
 <form action="" id="form-1">
 	<label>
 		name
@@ -31,4 +32,5 @@ Toto je kniznica na validaciu formularov v JS
 
 	<button id="validate">validate</button>
 </form>
+
 `
