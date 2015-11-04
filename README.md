@@ -81,31 +81,24 @@ Toto je kniznica na validaciu formularov v JS
 #!javascript
 
 var options = {
-		'formSelector': '#form-1', // id #kvak
+	'formSelector': '--selector formulara--', // id formulara napr. #formular, .formular123
 		'rules': {
-			'input[name=name],input[name=age],input[name=email],input[name=phone],input[name=psc]': {
-				'type': 'required', // phone|email|PSC|age|custom|required
-				'errorMessage': 'Toto policko musite vyplnit'
-			},
-			'input[name=email]': {
-				'type': 'email', // phone|email|PSC|age|custom|required
-				'errorMessage': 'Zadali ste neplatny email'
-			},
-			'input[name=age]': {
-				'type': 'age', // phone|email|PSC|age|custom|required
-				'errorMessage': 'Zadali ste neplatny vek'
-			},
-			'input[name=phone]': {
-				'type': 'phone', // phone|email|PSC|age|custom|required
-				'errorMessage': 'Zadali ste neplatny telefon'
-			},
-			'input[name=psc]': {
-				'type': 'custom', // phone|email|PSC|age|custom|required
-				'errorMessage': 'Zadali ste neplatne psc',
-				'validationFunc': function () {
-					return false;
+			'--selector inputu/ov--': { // selector inputu/ov napr. input[name=psc] alebo input[name=psc],input[name=email],input[name=street],...
+				'type': '--typ validacie--', // typ pravidla validacie, moze sa pouzit viac pravidiel oddelenych medzerou alebo ciarkou
+				'errorMessage': 'Zadali ste neplatne psc', // hlaska ktora sa vrati v pripade neuspesnej validacie
+				'validationFunc': function (input) { // vlastna funkcia na overenie inputu
+					return false/true;
 				}
-			}
+			},
+			...
 		}
 	};
 ```
+
+#### Dostupne validacie ####
+* phone
+* email
+* PSC
+* age
+* required
+* custom - je potrebne definovat funkciu ktora vrati true or false v poli nastaveni pre index validationFunc
