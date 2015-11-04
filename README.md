@@ -3,10 +3,11 @@
 Toto je kniznica na validaciu formularov v JS
 
 ### Zakladne pouzitie ###
-
 #### HTML ##
 ##### fomular
-`
+
+```
+#!html
 
 <form action="" id="form-1">
 	<label>
@@ -32,5 +33,4 @@ Toto je kniznica na validaciu formularov v JS
 
 	<button id="validate">validate</button>
 </form>
-
-`
+```
