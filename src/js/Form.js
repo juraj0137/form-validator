@@ -3,10 +3,6 @@ var Form = Form || {};
 
 Form.Validator = function (options) {
 
-	/**
-	 * Initialization variables ----------------------------------------------------------------------------------------
-	 */
-
 	this.form = null;
 	if (typeof options.formSelector != 'undefined' && !this.isEmpty(options.formSelector)) {
 		this.form = document.querySelector(options.formSelector);
@@ -22,10 +18,6 @@ Form.Validator = function (options) {
 	}
 
 	this.errors = [];
-
-	/**
-	 * Functions -------------------------------------------------------------------------------------------------------
-	 */
 
 	this.validate = function () {
 		if (!this.isEmpty(this.rules)) {

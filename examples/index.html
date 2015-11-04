@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
-	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
-	<!--<script src="js/heatmap_v2.js"></script>-->
+	<title>Form validation</title>
 	<script src="../src/js/Form.js"></script>
-
 </head>
 <body>
 
 <form action="" id="form-1">
+
 	<label>
 		name
 		<input type="text" name="name">
-	</label><br>
+	</label>
 	<label>
 		email
 		<input type="text" name="email">
@@ -31,7 +29,9 @@
 		psc
 		<input type="text" name="psc">
 	</label><br>
+
 	<button id="validate">validate</button>
+
 </form>
 <script type="text/javascript">
 	var options = {
@@ -56,7 +56,7 @@
 			'input[name=psc]': {
 				'type': 'custom', // phone|email|PSC|age|custom|required
 				'errorMessage': 'Zadali ste neplatne psc',
-				'validationFunc': function(){
+				'validationFunc': function () {
 					return false;
 				}
 			}
@@ -64,19 +64,11 @@
 	};
 	var _formValidator = new Form.Validator(options);
 
-	document.getElementById('validate').onclick = function () {
+	document.getElementById('validate').onclick = function (event) {
+		event.preventDefault();
 		_formValidator.clearErrors();
 		_formValidator.validate();
-		var str = '';
-		var errors = _formValidator.getErrors();
-		for(var key in errors){
-			if(errors.hasOwnProperty(key)){
-				var error = errors[key];
-				str += error.errorMessage + '\n';
-			}
-		}
-		alert(str);
-		return false;
+		console.log(_formValidator.getErrors());
 	}
 
 </script>
