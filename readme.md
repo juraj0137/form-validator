@@ -1,8 +1,8 @@
 # Forms #
 
-Toto je kniznica na validaciu formularov v JS
+Lib for validation form in JS
 
-### Zakladne pouzitie ###
+### Usage ###
 #### HTML ####
 ```
 #!html
@@ -33,7 +33,7 @@ Toto je kniznica na validaciu formularov v JS
 </form>
 ```
 
-#### javascript ####
+#### JS ####
 ```
 #!javascript
 
@@ -42,23 +42,23 @@ var options = {
 	'rules': {
 		'input[name=name],input[name=age],input[name=email],input[name=phone],input[name=psc]': {
 			'type': 'required',
-			'errorMessage': 'Toto policko musite vyplnit'
+			'errorMessage': 'this field is rquired'
 		},
 		'input[name=email]': {
 			'type': 'email',
-			'errorMessage': 'Zadali ste neplatny email'
+			'errorMessage': 'your email is incorrect'
 		},
 		'input[name=age]': {
 			'type': 'age',
-			'errorMessage': 'Zadali ste neplatny vek'
+			'errorMessage': 'your age is incorrect'
 		},
 		'input[name=phone]': {
 			'type': 'phone',
-			'errorMessage': 'Zadali ste neplatny telefon'
+			'errorMessage': 'your phone number is incorrect'
 		},
 		'input[name=psc]': {
 			'type': 'custom',
-			'errorMessage': 'Zadali ste neplatne psc',
+			'errorMessage': 'Your PSC is incorrect',
 			'validationFunc': function () {
 				return false;
 			}
@@ -75,18 +75,18 @@ document.getElementById('validate').onclick = function (event) {
 }
 ```
 
-#### Nastavenia ####
+#### Settings ####
 
 ```
 #!javascript
 
 var options = {
-	'formSelector': '--selector formulara--', // id formulara napr. #formular, .formular123
+	'formSelector': '--form selector--', // #form, .form123
 		'rules': {
-			'--selector inputu/ov--': { // selector inputu/ov napr. input[name=psc] alebo input[name=psc],input[name=email],input[name=street],...
-				'type': '--typ validacie--', // typ pravidla validacie, moze sa pouzit viac pravidiel oddelenych medzerou alebo ciarkou
-				'errorMessage': 'Zadali ste neplatne psc', // hlaska ktora sa vrati v pripade neuspesnej validacie
-				'validationFunc': function (input) { // vlastna funkcia na overenie inputu
+			'--input/s selector--': { // input[name=psc] alebo input[name=psc],input[name=email],input[name=street],...
+				'type': '--validation type--',
+				'errorMessage': 'Something is wrong',
+				'validationFunc': function (input) { // own validation
 					return false/true;
 				}
 			},
@@ -95,10 +95,10 @@ var options = {
 	};
 ```
 
-#### Dostupne validacie ####
+#### Validation types ####
 * phone
 * email
 * PSC
 * age
 * required
-* custom - je potrebne definovat funkciu ktora vrati true or false v poli nastaveni pre index validationFunc
+* custom
