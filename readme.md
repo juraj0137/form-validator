@@ -4,9 +4,7 @@ Lib for validation form in JS
 
 ### Usage ###
 #### HTML ####
-```
-#!html
-
+```html
 <form action="" id="form-1">
 	<label>
 		name
@@ -34,8 +32,7 @@ Lib for validation form in JS
 ```
 
 #### JS ####
-```
-#!javascript
+```javascript
 
 var options = {
 	'formSelector': '#form-1',
@@ -77,8 +74,7 @@ document.getElementById('validate').onclick = function (event) {
 
 #### Settings ####
 
-```
-#!javascript
+```javascript
 
 var options = {
 	'formSelector': '--form selector--', // #form, .form123
